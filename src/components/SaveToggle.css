@@ -1,0 +1,99 @@
+
+.save-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid rgba(177, 145, 255, 0.35);
+  border-radius: 999px;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(
+    135deg,
+    #7651ed,
+    #a45cff,
+    #6545db
+  );
+  box-shadow:
+    0 5px 20px rgba(128, 79, 255, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+  outline: none;
+}
+
+.save-toggle:hover {
+  box-shadow:
+    0 7px 28px rgba(147, 93, 255, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(205, 180, 255, 0.8);
+}
+
+.save-toggle:focus-visible {
+  outline: 2px solid #c4a8ff;
+  outline-offset: 4px;
+}
+
+.save-toggle:disabled {
+  cursor: default;
+}
+
+.save-toggle-label {
+  font-size: var(--button-font-size, 17px);
+  font-weight: 650;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+}
+
+.save-toggle-spinner,
+.save-toggle-success {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.save-toggle-success {
+  gap: 9px;
+  white-space: nowrap;
+}
+
+.save-toggle-success svg {
+  flex-shrink: 0;
+}
+
+.save-toggle-loading {
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    #e6dcff
+  );
+  color: #8154ec;
+  border-color: transparent;
+}
+
+.save-toggle-success-state {
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    #e6dcff
+  );
+  color: #8154ec;
+}
+
+.save-toggle-saved {
+  background: rgba(133, 91, 230, 0.16);
+  color: #d8c6ff;
+  border: 1px solid rgba(171, 133, 255, 0.5);
+  box-shadow:
+    0 0 18px rgba(133, 91, 230, 0.15),
+    inset 0 0 12px rgba(133, 91, 230, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .save-toggle {
+    transition: none;
+  }
+}

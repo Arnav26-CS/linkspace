@@ -1,0 +1,668 @@
+
+/* =========================================
+   LINKSPACE — ACTIVITY DASHBOARD
+========================================= */
+
+.activity-dashboard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  animation: activityFadeIn 0.5s ease;
+}
+
+@keyframes activityFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* SECTION HEADING */
+
+.activity-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.activity-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #9b91ff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  margin-bottom: 10px;
+}
+
+.activity-section-heading h2 {
+  color: #fff;
+  font-size: clamp(24px, 3vw, 30px);
+  font-weight: 750;
+  margin: 0 0 8px;
+  letter-spacing: -0.8px;
+}
+
+.activity-section-heading p,
+.activity-panel-heading p {
+  color: rgba(225, 225, 245, 0.58);
+  font-size: 13px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* STATISTICS */
+
+.activity-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.activity-stat-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 155px;
+  padding: 21px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.075),
+    rgba(255, 255, 255, 0.025)
+  );
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.activity-stat-card:hover {
+  border-color: rgba(157, 140, 255, 0.4);
+  background: rgba(255, 255, 255, 0.085);
+}
+
+.activity-stat-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 5px;
+}
+
+.activity-stat-icon.blue {
+  color: #70baff;
+  background: rgba(67, 151, 255, 0.15);
+}
+
+.activity-stat-icon.purple {
+  color: #b5a0ff;
+  background: rgba(151, 105, 255, 0.16);
+}
+
+.activity-stat-icon.pink {
+  color: #ff9bd0;
+  background: rgba(255, 105, 180, 0.14);
+}
+
+.activity-stat-card > span {
+  color: rgba(230, 230, 250, 0.7);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.activity-stat-card > strong {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.activity-stat-card > small {
+  color: rgba(220, 220, 240, 0.45);
+  font-size: 11px;
+}
+
+/* MAIN CONTENT GRID */
+
+.activity-main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(260px, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* PANELS */
+
+.activity-panel {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 20px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.065),
+    rgba(255, 255, 255, 0.025)
+  );
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.activity-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.activity-panel-heading h3 {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.activity-panel-heading p {
+  font-size: 12px;
+}
+
+.calendar-today-button {
+  padding: 8px 14px;
+  border: 1px solid rgba(155, 137, 255, 0.3);
+  border-radius: 9px;
+  background: rgba(139, 116, 255, 0.12);
+  color: #b8aaff;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.calendar-today-button:hover {
+  background: rgba(139, 116, 255, 0.24);
+}
+
+/* CALENDAR */
+
+.calendar-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 17px;
+}
+
+.calendar-navigation h3 {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.calendar-navigation > div {
+  display: flex;
+  gap: 7px;
+}
+
+.calendar-navigation button {
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9px;
+  color: #d8d3ff;
+  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.calendar-navigation button:hover {
+  background: rgba(143, 120, 255, 0.2);
+  border-color: rgba(143, 120, 255, 0.4);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.calendar-weekday {
+  padding: 9px 0;
+  text-align: center;
+  color: rgba(220, 220, 245, 0.43);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.calendar-day {
+  position: relative;
+  min-width: 0;
+  aspect-ratio: 1.15;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: rgba(245, 245, 255, 0.82);
+  background: rgba(255, 255, 255, 0.035);
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.calendar-day:hover {
+  background: rgba(143, 120, 255, 0.15);
+  border-color: rgba(143, 120, 255, 0.25);
+}
+
+.calendar-day.outside-month {
+  color: rgba(220, 220, 240, 0.2);
+  background: transparent;
+}
+
+.calendar-day.today {
+  border-color: rgba(117, 168, 255, 0.6);
+  color: #9ccaff;
+}
+
+.calendar-day.selected {
+  color: #fff;
+  background: linear-gradient(135deg, #7967e9, #a06bea);
+  border-color: transparent;
+  box-shadow: 0 4px 16px rgba(130, 105, 255, 0.28);
+}
+
+.calendar-day i {
+  position: absolute;
+  bottom: 5px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #9e8cff;
+}
+
+.calendar-day.selected i {
+  background: #fff;
+}
+
+.calendar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 17px;
+  margin-top: 16px;
+}
+
+.calendar-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: rgba(225, 225, 245, 0.55);
+  font-size: 10px;
+}
+
+.calendar-legend i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #a18aff;
+}
+
+.calendar-legend i.legend-selected {
+  background: #8b7aff;
+}
+
+/* SELECTED DATE */
+
+.selected-day-activity {
+  margin-top: 23px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.selected-day-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.selected-day-heading > div > span {
+  color: #a89aff;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.selected-day-heading h4 {
+  color: #fff;
+  font-size: 14px;
+  margin: 5px 0 0;
+}
+
+.selected-day-heading > strong {
+  color: #b7a7ff;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.selected-day-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.activity-link-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.035);
+  transition: 0.2s ease;
+}
+
+.activity-link-item:hover {
+  background: rgba(145, 120, 255, 0.1);
+  border-color: rgba(145, 120, 255, 0.25);
+}
+
+.activity-link-item > div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.activity-link-item strong {
+  color: #f2efff;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.activity-link-item span {
+  color: rgba(220, 220, 245, 0.45);
+  font-size: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.activity-link-item > svg {
+  flex-shrink: 0;
+  color: #a899ff;
+}
+
+.activity-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  min-height: 75px;
+  padding: 15px;
+  color: rgba(220, 220, 245, 0.5);
+  font-size: 12px;
+  text-align: center;
+}
+
+.activity-empty svg {
+  flex-shrink: 0;
+  color: #9c8bff;
+}
+
+/* WEEKLY ACTIVITY */
+
+.weekly-heading-icon {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  color: #ad9cff;
+  background: rgba(151, 105, 255, 0.15);
+}
+
+.weekly-total {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 25px;
+}
+
+.weekly-total strong {
+  color: #fff;
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.weekly-total span {
+  color: rgba(220, 220, 245, 0.52);
+  font-size: 11px;
+}
+
+.weekly-chart {
+  height: 185px;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 9px;
+  align-items: end;
+}
+
+.weekly-chart-column {
+  height: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.weekly-bar-value {
+  min-height: 13px;
+  color: #b7a8ff;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.weekly-bar-track {
+  width: 100%;
+  height: 125px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.weekly-bar {
+  width: 100%;
+  min-height: 0;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #b18aff, #7168e9);
+  box-shadow: 0 0 15px rgba(144, 112, 255, 0.2);
+}
+
+.weekly-day-label {
+  color: rgba(220, 220, 245, 0.55);
+  font-size: 10px;
+}
+
+.weekly-insight {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 24px;
+  padding: 13px;
+  border: 1px solid rgba(143, 120, 255, 0.15);
+  border-radius: 12px;
+  background: rgba(143, 120, 255, 0.07);
+  color: rgba(225, 220, 255, 0.65);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.weekly-insight svg {
+  flex-shrink: 0;
+  color: #ad9cff;
+}
+
+/* RECENT ACTIVITY */
+
+.recent-activity-panel {
+  width: 100%;
+}
+
+.recent-activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.recent-activity-item {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 13px;
+  color: inherit;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.025);
+  transition: 0.2s ease;
+}
+
+.recent-activity-item:hover {
+  border-color: rgba(143, 120, 255, 0.3);
+  background: rgba(143, 120, 255, 0.08);
+  transform: translateX(3px);
+}
+
+.recent-activity-icon {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  color: #ad9cff;
+  background: rgba(143, 120, 255, 0.13);
+}
+
+.recent-activity-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.recent-activity-info strong {
+  color: #f1efff;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recent-activity-info span {
+  color: rgba(220, 220, 245, 0.43);
+  font-size: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recent-activity-category {
+  flex-shrink: 0;
+  padding: 5px 9px;
+  border: 1px solid rgba(151, 130, 255, 0.2);
+  border-radius: 7px;
+  color: #b9aaff;
+  background: rgba(151, 130, 255, 0.09);
+  font-size: 10px;
+}
+
+.recent-activity-item > svg {
+  flex-shrink: 0;
+  color: rgba(220, 220, 245, 0.45);
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 900px) {
+  .activity-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .weekly-panel {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 650px) {
+  .activity-dashboard {
+    gap: 18px;
+  }
+
+  .activity-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .activity-stat-card {
+    min-height: 130px;
+    padding: 17px;
+  }
+
+  .activity-panel {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .calendar-grid {
+    gap: 4px;
+  }
+
+  .calendar-day {
+    border-radius: 7px;
+    font-size: 11px;
+  }
+
+  .calendar-weekday {
+    font-size: 9px;
+  }
+
+  .recent-activity-item {
+    gap: 9px;
+    padding: 10px;
+  }
+
+  .recent-activity-category {
+    display: none;
+  }
+
+  .activity-section-heading h2 {
+    font-size: 24px;
+  }
+}
